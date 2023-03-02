@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@800&family=Inter&family=Open+Sans&family=Poppins&family=Work+Sans:wght@400;600;700&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
     font-family: 'Work Sans';
 }
 
@@ -35,4 +35,57 @@
     align-items: center;
     text-align: center;
 
+}
+
+
+.container{
+    max-width: 1600px;
+    margin: 30px auto;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card{
+    padding: 20px;
+    border: 1px solid rgba(17, 17, 17, 0.1);
+    border-radius: 16px;
+}
+.card-image{
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+
+.card-title{
+    font-weight: 600;
+    font-size: 25px;
+    color: #111111;
+}
+
+.hr{
+    border: 1px solid rgba(17, 17, 17, 0.2);
+}
+ol{
+    padding: 0px 20px;
+}
+li{
+    color: #585858;
+}
+
+.card-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.details-btn{
+    border-radius: 35px;
+    background-color: #FEF7F7;
+    color: #EB5757;
+    border: none;
 }
