@@ -36,9 +36,9 @@ const loadData = (data) => {
     returnCardFeature(data[0].features)
     for(let i=0;i<data.length;i++){
 
-        // if(i === 6){
-        //     break;
-        // }
+        if(i === 6){
+            break;
+        }
 
         const card = document.createElement('card');
         card.classList.add('card');
@@ -48,7 +48,6 @@ const loadData = (data) => {
 
         <ol>
             ${returnCardFeature(data[i].features)}
-            
         </ol>
         <!-- <hr> -->
         <div class="hr"></div>
@@ -87,8 +86,14 @@ const calcPrice = price =>{
     }
 }
 
-const returnListItem = items => {
-    console.log(items.keys);
+const returnModalFeaturesList = items => {
+    let n = Object.keys(items).length;
+    let list = '';
+    for (const [_, features] of Object.entries(items)) {
+        // console.log(features.feature_name);
+        list += `<li>${features.feature_name}</li> `;
+      }
+      return list;
 }
 
 const displayDetails = data =>{
@@ -108,7 +113,7 @@ const displayDetails = data =>{
             <div class="modal-features">
                 <h3>Features</h3>
                 <ul>
-                    ${returnListItem(data.features)}
+                    ${returnModalFeaturesList(data.features)}
                 </ul>
             </div>
             <div class="integrations">
