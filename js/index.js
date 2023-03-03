@@ -1,8 +1,8 @@
-
-const fetchData = () =>{
+let dataLimit = 6;
+const fetchData = (dataLimit) =>{
     fetch('https://openapi.programming-hero.com/api/ai/tools')
     .then(res  => res.json())
-    .then(data => loadData(data.data.tools));
+    .then(data => loadData(data.data.tools, dataLimit));
 }
 
 const toggleSpinner = isLoading => {
@@ -15,8 +15,12 @@ const toggleSpinner = isLoading => {
     }
 }
 
-fetchData();
+fetchData(dataLimit);
 toggleSpinner(true);
+
+document.getElementById('btn-see-more').addEventListener('click', function(){
+    fetchData(100);
+})
 
 
 const returnCardFeature = item => {
@@ -27,21 +31,24 @@ const returnCardFeature = item => {
     return list;
 }
 
-const loadData = (data) => {
+const loadData = (data, dataLimit) => {
 
     // console.log(data[0])
     const cards = document.getElementById('cards');
+    cards.textContent = '';
     // console.log(data[0])
 
     returnCardFeature(data[0].features)
     for(let i=0;i<data.length;i++){
 
-        // if(i === 6){
-        //     break;
-        // }
+        if(i === dataLimit){
+            break;
+        }
 
         const card = document.createElement('card');
         card.classList.add('card');
+        card.innerHTML = ` `;
+        cards.appendChild(card);
         card.innerHTML = `
         <img class="card-image" src="${data[i].image}" alt="">
         <h3 class="card-title">Features</h3>
