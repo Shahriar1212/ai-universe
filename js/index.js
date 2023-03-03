@@ -50,7 +50,7 @@ const loadData = (data) => {
                 <p class="date"> <img class="calendar-icon" src="calendar.png" alt="">${data[i].published_in}</p>
             </div>
             <div>
-                <button onclick="loadPhoneDetails('${data[i].id}')" class="details-btn" data-bs-toggle="modal" data-bs-target="#cardDetailModal"><img src="right-arrow.png" alt=""></button>
+                <button onclick="loadDetails('${data[i].id}')" class="details-btn" data-bs-toggle="modal" data-bs-target="#cardDetailModal"><img src="right-arrow.png" alt=""></button>
             </div>
         </div>
         `;
@@ -62,7 +62,7 @@ const loadData = (data) => {
     
 }
 
-const loadPhoneDetails = async id =>{
+const loadDetails = async id =>{
     console.log(id);
     const url =`https://openapi.programming-hero.com/api/ai/tool/${id}`;
     const res = await fetch(url);
@@ -70,8 +70,46 @@ const loadPhoneDetails = async id =>{
     displayDetails(data.data);
 }
 
-const displayDetails = phone =>{
-    
+const displayDetails = data =>{
+    console.log(data.image_link[0]);
+    const modalContainer = document.getElementById('modal-container');
+
+    modalContainer.innerHTML = ``;
+    modalContainer.innerHTML = `
+    <div class="card1 modal-card">
+        <h3>${data.description}</h3>
+        <div class="cost-plan-container">
+            <div class="cost-box">$10/month Basic</div>
+            <div class="cost-box">$10/month Basic</div>
+            <div class="cost-box">$10/month Basic</div>
+        </div>
+        <div class="other-info">
+            <div class="modal-features">
+                <h3>Features</h3>
+                <ul>
+                    <li>Customizable responses</li>
+                    <li>Customizable responses</li>
+                    <li>Customizable responses</li>
+                </ul>
+            </div>
+            <div class="integrations">
+                <h3>Integration</h3>
+                <ul>
+                    <li>FB Messenger</li>
+                    <li>FB Messenger</li>
+                    <li>FB Messenger</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-card">
+        <img class="img-fluid" src="${data.image_link[0]}" alt="">
+        <h3>${data.input_output_examples[0].input}</h3>
+        <p>${data.input_output_examples[0].output}</p>
+    </div>
+    `
+
     
 }
 

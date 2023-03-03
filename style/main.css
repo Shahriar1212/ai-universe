@@ -101,6 +101,27 @@ li{
 }
 
 
+.see-more-section{
+    text-align: center;
+}
+
+.btn-see-more{
+    width: 200px;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 20px 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+    background-color: #EB5757;
+    border-radius: 8px;
+    border: none;
+    line-height: 23px;
+    align-items: center;
+    text-align: center;
+}
+
+
 /*----------------------------- modal style ---------------------------*/
 
 .modal-container{
