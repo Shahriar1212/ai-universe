@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Universe-Hub</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/main.css">
-</head>
-<body>
     
+</head>
+
+<body>
+
     <header class="header">
         <h1 class="header-title">AI Universe Hub</h1>
         <button class="btn-sort">Sort By Date</button>
@@ -17,12 +21,12 @@
     <main>
         <section>
 
-            <div class="container">
-    
-    
-                <div class="cards">
+            <div id="container" class="container">
+
+
+                <div id="cards" class="cards">
                     <!-- Card 1 -->
-                    <div class="card">
+                    <!-- <div id="card" class="card">
                         <img class="card-image" src="https://i.ytimg.com/vi/_LZzfpjepoY/maxresdefault.jpg" alt="">
                         <h3 class="card-title">Features</h3>
 
@@ -31,7 +35,6 @@
                             <li>two</li>
                             <li>three</li>
                         </ol>
-                        <!-- <hr> -->
                         <div class="hr"></div>
                         <div class="card-footer">
                             <div>
@@ -42,130 +45,24 @@
                                 <button class="details-btn"><img src="right-arrow.png" alt=""></button>
                             </div>
                         </div>
-                        
-                    </div>
 
-
-                    <div class="card">
-                        <img class="card-image" src="https://i.ytimg.com/vi/_LZzfpjepoY/maxresdefault.jpg" alt="">
-                        <h3 class="">Features</h3>
-
-                        <ol>
-                            <li>one</li>
-                            <li>two</li>
-                            <li>three</li>
-                        </ol>
-                        <!-- <hr> -->
-                        <div>
-                            <div>
-                                <h2>chat GPT</h2>
-                                <p>date</p>
-                            </div>
-                            <div>
-                                <button>button</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-
-                    <div class="card">
-                        <img class="card-image" src="https://i.ytimg.com/vi/_LZzfpjepoY/maxresdefault.jpg" alt="">
-                        <h3 class="">Features</h3>
-
-                        <ol>
-                            <li>one</li>
-                            <li>two</li>
-                            <li>three</li>
-                        </ol>
-                        <!-- <hr> -->
-                        <div>
-                            <div>
-                                <h2>chat GPT</h2>
-                                <p>date</p>
-                            </div>
-                            <div>
-                                <button>button</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-
-                    <div class="card">
-                        <img class="card-image" src="https://i.ytimg.com/vi/_LZzfpjepoY/maxresdefault.jpg" alt="">
-                        <h3 class="">Features</h3>
-
-                        <ol>
-                            <li>one</li>
-                            <li>two</li>
-                            <li>three</li>
-                        </ol>
-                        <!-- <hr> -->
-                        <div>
-                            <div>
-                                <h2>chat GPT</h2>
-                                <p>date</p>
-                            </div>
-                            <div>
-                                <button>button</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-
-                    <div class="card">
-                        <img class="card-image" src="https://i.ytimg.com/vi/_LZzfpjepoY/maxresdefault.jpg" alt="">
-                        <h3 class="">Features</h3>
-
-                        <ol>
-                            <li>one</li>
-                            <li>two</li>
-                            <li>three</li>
-                        </ol>
-                        <!-- <hr> -->
-                        <div>
-                            <div>
-                                <h2>chat GPT</h2>
-                                <p>date</p>
-                            </div>
-                            <div>
-                                <button>button</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-
-
-                    <div class="card">
-                        <img class="card-image" src="https://i.ytimg.com/vi/_LZzfpjepoY/maxresdefault.jpg" alt="">
-                        <h3 class="">Features</h3>
-
-                        <ol>
-                            <li>one</li>
-                            <li>two</li>
-                            <li>three</li>
-                        </ol>
-                        <!-- <hr> -->
-                        <div>
-                            <div>
-                                <h2>chat GPT</h2>
-                                <p>date</p>
-                            </div>
-                            <div>
-                                <button>button</button>
-                            </div>
-                        </div>
-                        
-                    </div>
+                    </div> -->
 
 
                 </div>
             </div>
         </section>
+
+        <section id="loader" class="">
+            <div style="height: 400px;" class="d-flex justify-content-center align-items-center">
+                <div class="spinner-border  text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
     </main>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
 </body>
+
 </html>

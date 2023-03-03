@@ -82,6 +82,16 @@ li{
     align-items: center;
     justify-content: space-between;
 }
+.p img{
+    margin-left: 10px;
+}
+.calendar-icon{
+    padding-right: 10px;
+}
+
+.card-footer div h2{
+    margin-right: 5px;
+}
 
 .details-btn{
     border-radius: 35px;
