@@ -99,3 +99,56 @@ li{
     color: #EB5757;
     border: none;
 }
+
+
+/*----------------------------- modal style ---------------------------*/
+
+.modal-container{
+    display: flex;
+}
+
+.modal-card{
+    padding: 30px;
+    margin: 40px;
+    width: 487px;
+    height: 511px;
+    border: 2px solid black;
+}
+.card1{
+    background-color: #FEF6F6;
+}
+
+.modal-card h3{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+.cost-plan-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cost-box{
+    padding: 22px;
+    width: 132px;
+    height: 100px;
+    color: #03A30A;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+}
+
+.other-info{
+    display: flex;
+    justify-content: space-around;
+}
+
+ul li{
+    color: #585858;
+    line-height: 26px;
+}
+
+.modal-card p{
+    color: #585858;
+}

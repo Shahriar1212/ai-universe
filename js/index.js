@@ -50,7 +50,7 @@ const loadData = (data) => {
                 <p class="date"> <img class="calendar-icon" src="calendar.png" alt="">${data[i].published_in}</p>
             </div>
             <div>
-                <button class="details-btn"><img src="right-arrow.png" alt=""></button>
+                <button onclick="loadPhoneDetails('${data[i].id}')" class="details-btn" data-bs-toggle="modal" data-bs-target="#cardDetailModal"><img src="right-arrow.png" alt=""></button>
             </div>
         </div>
         `;
@@ -59,11 +59,21 @@ const loadData = (data) => {
         toggleSpinner(false);
         
     }
-
-
     
 }
 
+const loadPhoneDetails = async id =>{
+    console.log(id);
+    const url =`https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayDetails(data.data);
+}
+
+const displayDetails = phone =>{
+    
+    
+}
 
 
 
