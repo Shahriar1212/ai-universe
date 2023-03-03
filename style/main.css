@@ -174,3 +174,24 @@ ul li{
 .modal-card p{
     color: #585858;
 }
+.btn-accuracy{
+    padding: 10px 10px;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #EB5757;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position:absolute;
+    right: 35px;
+    top: 35px;
+    border-radius: 16px;
+    transition: all 0.2s ease-in;
+}
+.card2{
+    position: relative;
+}
+.btn-accuracy:hover{
+    opacity: 0.7;
+
+}

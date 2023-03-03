@@ -83,7 +83,6 @@ const loadDetails = async id =>{
 }
 
 const calcPrice = price =>{
-    console.log(price);
     if(price === null){
         return `No data found`;
     }
@@ -107,7 +106,6 @@ const returnModalIntigrationList = items => {
     if(items == null){
         return 'sdf';
     }
-    console.log(items);
     for(x of items){
         list += `<li>${x}</li> `
     }
@@ -115,8 +113,23 @@ const returnModalIntigrationList = items => {
 }
 
 const returnInputExample = data =>{
-    console.log(data.input_output_examples)
+    // console.log(data.input_output_examples)
+    
 }
+
+const getAccuracy = data => {
+    if(data.accuracy.score === null){
+        return 'no data found';
+    }
+    else{
+        return (`${data.accuracy.score * 100}% accuracy`);        
+    }
+    return '';
+}
+
+
+
+
 
 const displayDetails = data =>{
     // console.log(data.features);
@@ -148,15 +161,15 @@ const displayDetails = data =>{
         </div>
     </div>
 
-    <div class="modal-card">
+    <div class="card2 modal-card">
+        <button id="btn-accuracy" class="btn-accuracy">${getAccuracy(data)}</button>
         <img class="img-fluid" src="${data.image_link[0]}" alt="">
         <h3>${ data.input_output_examples[0].input}</h3>
         <p>${ data.input_output_examples[0].output}</p>
     </div>
-    `
-
-    
+    `   
 }
+
 
 
 
