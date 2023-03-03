@@ -154,7 +154,7 @@ li{
 
 .cost-box{
     padding: 22px;
-    width: 132px;
+    width: 33%;
     font-weight: 800;
     height: 100px;
     color: #03A30A;
@@ -196,4 +196,45 @@ ul li{
 .btn-accuracy:hover{
     opacity: 0.7;
 
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }  
+    .modal-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-card{
+        padding: 30px;
+        margin: 10px auto;
+        width: 450px;
+
+    }
+}
+
+
+@media only screen and (min-width:601px) and (max-width:950px) {
+
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }   
+    .modal-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-card{
+        padding: 30px;
+        margin: 10px auto;
+
+    }
 }
