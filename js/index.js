@@ -31,14 +31,14 @@ const loadData = (data) => {
 
     // console.log(data[0])
     const cards = document.getElementById('cards');
-    console.log(data[0])
+    // console.log(data[0])
 
     returnCardFeature(data[0].features)
     for(let i=0;i<data.length;i++){
 
-        if(i === 6){
-            break;
-        }
+        // if(i === 6){
+        //     break;
+        // }
 
         const card = document.createElement('card');
         card.classList.add('card');
@@ -70,7 +70,7 @@ const loadData = (data) => {
 }
 
 const loadDetails = async id =>{
-    console.log(id);
+    // console.log(id);
     const url =`https://openapi.programming-hero.com/api/ai/tool/${id}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -78,6 +78,10 @@ const loadDetails = async id =>{
 }
 
 const calcPrice = price =>{
+    console.log(price);
+    if(price === null){
+        return `No data found`;
+    }
     if(price === '0'){
         return 'Free of Cost';
     }
@@ -87,17 +91,30 @@ const calcPrice = price =>{
 }
 
 const returnModalFeaturesList = items => {
-    let n = Object.keys(items).length;
     let list = '';
     for (const [_, features] of Object.entries(items)) {
-        // console.log(features.feature_name);
         list += `<li>${features.feature_name}</li> `;
       }
       return list;
 }
+const returnModalIntigrationList = items => {
+    let list = '';
+    if(items == null){
+        return 'sdf';
+    }
+    console.log(items);
+    for(x of items){
+        list += `<li>${x}</li> `
+    }
+    return list;
+}
+
+const returnInputExample = data =>{
+    console.log(data.input_output_examples)
+}
 
 const displayDetails = data =>{
-    console.log(data.features);
+    // console.log(data.features);
     const modalContainer = document.getElementById('modal-container');
 
     modalContainer.innerHTML = ``;
@@ -107,7 +124,7 @@ const displayDetails = data =>{
         <div class="cost-plan-container">
             <div class="cost-box">${calcPrice(data.pricing[0].price) + '  ' + data.pricing[0].plan}</div>
             <div class="cost-box">${calcPrice(data.pricing[0].price) + '  ' + data.pricing[1].plan}</div>
-            <div class="cost-box">${calcPrice(data.pricing[0].price) + '  ' + data.pricing[2].plan}</div>
+            <div class="cost-box" style="color:#EB5757;">${calcPrice(data.pricing[0].price) + '  ' + data.pricing[2].plan}</div>
         </div>
         <div class="other-info">
             <div class="modal-features">
@@ -119,9 +136,8 @@ const displayDetails = data =>{
             <div class="integrations">
                 <h3>Integration</h3>
                 <ul>
-                    <li>FB Messenger</li>
-                    <li>FB Messenger</li>
-                    <li>FB Messenger</li>
+                ${returnModalIntigrationList(data.integrations)}
+                    
                 </ul>
             </div>
         </div>
@@ -129,8 +145,8 @@ const displayDetails = data =>{
 
     <div class="modal-card">
         <img class="img-fluid" src="${data.image_link[0]}" alt="">
-        <h3>${data.input_output_examples[0].input}</h3>
-        <p>${data.input_output_examples[0].output}</p>
+        <h3>${ data.input_output_examples[0].input}</h3>
+        <p>${ data.input_output_examples[0].output}</p>
     </div>
     `
 
