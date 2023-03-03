@@ -18,18 +18,27 @@ const toggleSpinner = isLoading => {
 fetchData();
 toggleSpinner(true);
 
+
+const returnCardFeature = item => {
+    let list = '';
+    for(x of item){
+        list += `<li>${x}</li> `
+    }
+    return list;
+}
+
 const loadData = (data) => {
 
     // console.log(data[0])
     const cards = document.getElementById('cards');
     console.log(data[0])
 
-
+    returnCardFeature(data[0].features)
     for(let i=0;i<data.length;i++){
 
-        if(i === 6){
-            break;
-        }
+        // if(i === 6){
+        //     break;
+        // }
 
         const card = document.createElement('card');
         card.classList.add('card');
@@ -38,9 +47,8 @@ const loadData = (data) => {
         <h3 class="card-title">Features</h3>
 
         <ol>
-            <li>${data[i].features['0']}</li>
-            <li>${data[i].features['1']}</li>
-            <li>${data[i].features['2']}</li>
+            ${returnCardFeature(data[i].features)}
+            
         </ol>
         <!-- <hr> -->
         <div class="hr"></div>
@@ -70,8 +78,21 @@ const loadDetails = async id =>{
     displayDetails(data.data);
 }
 
+const calcPrice = price =>{
+    if(price === '0'){
+        return 'Free of Cost';
+    }
+    else{
+        return price;
+    }
+}
+
+const returnListItem = items => {
+    console.log(items.keys);
+}
+
 const displayDetails = data =>{
-    console.log(data.image_link[0]);
+    console.log(data.features);
     const modalContainer = document.getElementById('modal-container');
 
     modalContainer.innerHTML = ``;
@@ -79,17 +100,15 @@ const displayDetails = data =>{
     <div class="card1 modal-card">
         <h3>${data.description}</h3>
         <div class="cost-plan-container">
-            <div class="cost-box">$10/month Basic</div>
-            <div class="cost-box">$10/month Basic</div>
-            <div class="cost-box">$10/month Basic</div>
+            <div class="cost-box">${calcPrice(data.pricing[0].price) + '  ' + data.pricing[0].plan}</div>
+            <div class="cost-box">${calcPrice(data.pricing[0].price) + '  ' + data.pricing[1].plan}</div>
+            <div class="cost-box">${calcPrice(data.pricing[0].price) + '  ' + data.pricing[2].plan}</div>
         </div>
         <div class="other-info">
             <div class="modal-features">
                 <h3>Features</h3>
                 <ul>
-                    <li>Customizable responses</li>
-                    <li>Customizable responses</li>
-                    <li>Customizable responses</li>
+                    ${returnListItem(data.features)}
                 </ul>
             </div>
             <div class="integrations">
