@@ -47,8 +47,6 @@ const loadData = (data, dataLimit) => {
 
         const card = document.createElement('card');
         card.classList.add('card');
-        card.innerHTML = ` `;
-        cards.appendChild(card);
         card.innerHTML = `
         <img class="card-image" src="${data[i].image}" alt="">
         <h3 class="card-title">Features</h3>
@@ -123,8 +121,8 @@ const returnInputExample = data =>{
 const displayDetails = data =>{
     // console.log(data.features);
     const modalContainer = document.getElementById('modal-container');
+    modalContainer.textContent = '';
 
-    modalContainer.innerHTML = ``;
     modalContainer.innerHTML = `
     <div class="card1 modal-card">
         <h3>${data.description}</h3>
