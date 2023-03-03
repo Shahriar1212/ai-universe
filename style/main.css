@@ -133,10 +133,11 @@ li{
     margin: 40px;
     width: 487px;
     height: 511px;
-    border: 2px solid black;
+    border-radius: 16px;
 }
 .card1{
     background-color: #FEF6F6;
+    border: 1px solid #EB5757;
 }
 
 .modal-card h3{
@@ -190,6 +191,7 @@ ul li{
 }
 .card2{
     position: relative;
+    border: 1px solid #E7E7E7;
 }
 .btn-accuracy:hover{
     opacity: 0.7;

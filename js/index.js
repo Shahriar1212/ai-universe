@@ -1,4 +1,6 @@
 let dataLimit = 6;
+let sort = false;
+let seeMore = false;
 const fetchData = (dataLimit) =>{
     fetch('https://openapi.programming-hero.com/api/ai/tools')
     .then(res  => res.json())
@@ -19,6 +21,7 @@ fetchData(dataLimit);
 toggleSpinner(true);
 
 document.getElementById('btn-see-more').addEventListener('click', function(){
+    seeMore = true;
     fetchData(100);
 })
 
@@ -31,9 +34,39 @@ const returnCardFeature = item => {
     return list;
 }
 
+document.getElementById('btn-sort').addEventListener('click', function(){
+    sort = true;
+    if(seeMore){
+        fetchData(100);
+    }
+    else{
+        fetchData(6);
+    }
+})
+
 const loadData = (data, dataLimit) => {
 
-    // console.log(data[0])
+    let a = data[0].published_in;
+
+    const customSort = (a,b) =>{
+        const date1 = new Date(a.published_in);
+        const date2 = new Date(b.published_in);
+
+        if(date1 < date2) return 1;
+        else if(date1 > date2) return -1;
+        return 0;
+
+    }
+
+    console.log(data);
+    if(sort){
+        data = data.sort(customSort);
+    }
+    
+    console.log(data);
+
+
+
     const cards = document.getElementById('cards');
     cards.textContent = '';
     // console.log(data[0])
